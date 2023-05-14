@@ -7,8 +7,10 @@ class Program
         Console.WriteLine("Меню выбора:");
         Console.WriteLine("1. Ввести А");
         Console.WriteLine("2. Ввести В");
-        Console.WriteLine("3. Выполнить операцию '+'");        
-        Console.WriteLine("5. Выполнить операцию '*'");        
+        Console.WriteLine("3. Выполнить операцию '+'");
+        Console.WriteLine("4. Выполнить операцию '-'");
+        Console.WriteLine("5. Выполнить операцию '*'");
+        Console.WriteLine("6. Выполнить операцию '/'");
 
         int choice;
         double a = 0, b = 0;
@@ -47,7 +49,15 @@ class Program
                             continue;
                         }
                         Console.WriteLine($"Результат сложения: {a + b}");
-                        break;                   
+                        break;
+                    case 4:
+                        if (!hasA || !hasB)
+                        {
+                            Console.WriteLine("Ошибка! Введите значения А и В перед выполнением операции.");
+                            continue;
+                        }
+                        Console.WriteLine($"Результат вычитания: {a - b}");
+                        break;
                     case 5:
                         if (!hasA || !hasB)
                         {
@@ -55,7 +65,20 @@ class Program
                             continue;
                         }
                         Console.WriteLine($"Результат умножения: {a * b}");
-                        break;                    
+                        break;
+                    case 6:
+                        if (!hasA || !hasB)
+                        {
+                            Console.WriteLine("Ошибка! Введите значения А и В перед выполнением операции.");
+                            continue;
+                        }
+                        if (b == 0)
+                        {
+                            Console.WriteLine("Ошибка! Деление на ноль невозможно.");
+                            continue;
+                        }
+                        Console.WriteLine($"Результат деления: {a / b}");
+                        break;
                     default:
                         Console.WriteLine("Ошибка! Введите число от 0 до 6.");
                         break;
